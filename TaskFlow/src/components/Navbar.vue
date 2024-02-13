@@ -1,5 +1,5 @@
 <template>
-  <nav class="m-0 border bg-white flex justify-between fixed top-0 left-0 w-full h-16 
+  <nav class="m-0 bg-white flex justify-between fixed top-0 left-0 w-full h-16 
               hover:shadow-md">
     <div>
       <img  alt="" class="logo" src="@/assets/logo.svg" width="50" height="50">
@@ -10,8 +10,12 @@
       </li>
     </ul>
     <div>
-      <button class="text-blue mx-2 px-4 py-2 text-lg h-full ">Register</button>
-      <button class="ml-2 mr-0 px-10 py-2 bg-blue text-white h-full font-bold text-lg">Login</button>
+      <RouterLink to="/register">
+        <button class="text-blue mx-2 px-4 py-2 text-lg h-full ">Register</button>
+      </RouterLink>
+      <RouterLink to="/login" >
+        <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white h-full font-bold text-lg">Login</button>
+      </RouterLink>
     </div>
   </nav>
 </template>
@@ -22,7 +26,7 @@ export default {
   components: { NavItem },
   data() {
         return {
-            pages: ['Home', 'Sections', 'Authors']
+            pages: ['Home', 'About', 'Authors']
         }
     }
 }
