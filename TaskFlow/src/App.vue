@@ -3,6 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue';
 import HomeView from './views/HomeView.vue'
 import AboutView from './views/AboutView.vue'
+import LoginView from "@/views/LoginView.vue";
 
 </script>
 
@@ -13,6 +14,8 @@ import AboutView from './views/AboutView.vue'
 
       <home-view></home-view>
       <about-view></about-view>
+      <!--TODO: Don't know how to repair route to login site so I placed it here to start my work. Please fix-->
+      <login-view></login-view>
     </div>
   </header>
 
