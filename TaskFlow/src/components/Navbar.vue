@@ -1,13 +1,12 @@
 <template>
-  <nav class="m-0 bg-white flex justify-between fixed top-0 left-0 w-full h-16
+  <nav class="m-0 bg-white flex justify-between fixed top-0 left-0 w-full h-16 
               hover:shadow-md">
     <div>
       <img  alt="" class="logo" src="@/assets/logo.svg" width="50" height="50">
     </div>
     <ul class="flex ">
-      <li class="py-3 cursor-pointer mx-3 m-auto">
-<!--          <nav-item :proP='prop'></nav-item>-->
-          <nav-item :propA="['A', 'B', 'C']" :propB="['a', 'b', 'c']"></nav-item>
+      <li v-for="(page, index) in pages" :key="index" class="py-3 cursor-pointer mx-3 m-auto">
+          <nav-item :page="page"></nav-item>
       </li>
     </ul>
     <div>
@@ -27,13 +26,8 @@ export default {
   components: { NavItem },
   data() {
         return {
-          propa: [['Home', 'About', 'Authors'],
-            ['/', 'about', 'authors']]
+            pages: ['Home', 'About', 'Authors']
         }
-    },
-  created() {
-    console.log('Navbar prop:', this.propa)
-  }
+    }
 }
-
 </script>
