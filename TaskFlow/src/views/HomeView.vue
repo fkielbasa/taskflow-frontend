@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AboutView from "@/views/AboutView.vue";
 
 </script>
 
@@ -14,4 +15,7 @@
       <img  alt="" class="logo" src="@/assets/tasks.svg" width="800" height="800">
     </div>
   </main>
+
+  <about-view></about-view>
+
 </template>
