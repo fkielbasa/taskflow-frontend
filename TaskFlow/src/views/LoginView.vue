@@ -1,5 +1,44 @@
-<script setup lang="ts">
+<script lang="ts">
+ import { inject } from 'vue';
+export default {
+  data() {
+    return {
 
+    }
+  },
+  methods: {
+    async handleSignIn() {
+      try {
+        const googleUser = await this.$gAuth.signIn();
+        if (!googleUser) {
+          return null;
+        }
+
+        this.user = googleUser.getBasicProfile().getEmail();
+        console.log(this.$gAuth.signIn)
+      } catch (error) {
+        console.log(error);
+        return null;
+      }
+      
+    },
+    async handleSignOut() {
+      try {
+        await this.$gAuth.signOut();
+        this.user = '';
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  },
+   setup() {
+    const Vue3GoogleOauth = inject('Vue3GoogleOauth');
+
+    return {
+      Vue3GoogleOauth,
+    };
+   }
+}
 </script>
 
 <template>
@@ -35,7 +74,7 @@
         </div>
       </form>
       <div>
-      <button class="buttonCustomStyle flex  w-full items-center justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      <button @click="handleSignIn" class="buttonCustomStyle flex  w-full items-center justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           <img src="@/assets/icons/google-icon.png" class="mx-2 h-5 w-auto"></img>
           Login with Google</button>
       </div>
