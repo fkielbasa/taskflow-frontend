@@ -44,13 +44,5 @@
 </template>
 
 <style>
-  .buttonCustomStyle {
-    background-color: #2185D5;
-
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease;
-  }
-  .buttonCustomStyle:hover {
-    background-color: #39a9ff;
-  }
+  @import '@/assets/styles/CustomStyles.module.css';
 </style>
