@@ -2,11 +2,14 @@
   <nav class="m-0 bg-white flex justify-between top-0 left-0 w-full h-16
               hover:shadow-md">
     <div>
-<!--      <img  alt="" class="logo" src="@/assets/logo.svg" width="50" height="50">-->
       <img  alt="" class="logo" src="@/assets/logo/TaskFlowSmallLogo.png" width="50" height="50">
     </div>
     <ul class="flex ">
-      <li v-for="(page, index) in pages" :key="index" class="py-3 cursor-pointer mx-3 m-auto">
+      <li 
+        v-for="(page, index) in pages" 
+        :key="index" 
+        class="py-3 cursor-pointer mx-3 m-auto"
+      >
           <nav-item :page="page"></nav-item>
       </li>
     </ul>

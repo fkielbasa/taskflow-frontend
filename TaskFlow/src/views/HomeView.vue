@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import AboutView from "./views/AboutView.vue";
-import Navbar from "./components/Navbar.vue";
+
 
 </script>
 
 <template>
-  <Navbar/>
-
   <main class="flex justify-evenly items-center bg-white">
     <div class="m-0 w-96 flex flex-col gap-20">
       <p>
@@ -19,6 +16,6 @@ import Navbar from "./components/Navbar.vue";
     </div>
   </main>
 
-  <about-view></about-view>
+
 
 </template>

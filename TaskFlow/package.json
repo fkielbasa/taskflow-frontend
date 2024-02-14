@@ -13,6 +13,7 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "pinia": "^2.1.7",
+    "volar-service-vetur": "^0.0.30",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
