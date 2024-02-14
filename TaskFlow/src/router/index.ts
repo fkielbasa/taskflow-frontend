@@ -32,7 +32,7 @@ const router = createRouter({
     },
     {
       path: '/tasks',
-      name: '/tasks',
+      name: 'tasks',
       component: TasksView
     }
   ]

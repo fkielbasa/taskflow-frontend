@@ -1,10 +1,14 @@
 <script lang="ts">
  import { inject } from 'vue';
+ import axios from 'axios';
+ import { useRouter } from 'vue-router';
 export default {
   data() {
     return {
       showForgotPasswordForm: false,
-      message: 'Sign in to your account'
+      message: 'Sign in to your account',
+      email: '',
+      password: ''
     }
   },
   watch: {
@@ -35,6 +39,22 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    async login(event) {
+      axios.post(
+        'https://localhost:7084/api/v1/Auth/login',
+        {
+          email: this.email, 
+          password: this.password
+        },
+      )
+      .then(response => {
+        console.log('Response:', response.data);
+        this.$router.push('/tasks');
+      })
+      .catch(error => {
+        console.error('Error:', error)
+      });
     }
   },
    setup() {
@@ -56,11 +76,11 @@ export default {
     </div>
 
     <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form v-if="!showForgotPasswordForm" class="space-y-6" action="#" method="POST">
+      <form v-if="!showForgotPasswordForm" class="space-y-6" @submit.prevent="login" method="POST">
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <div class="mt-1">
-            <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input id="email" name="email" type="email" autocomplete="email" v-model="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
@@ -72,17 +92,17 @@ export default {
             </div>
           </div>
           <div class="mt-1">
-            <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input id="password" name="password" type="password" autocomplete="current-password" v-model="password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
           </div>
         </div>
         <div>
-          <button type="submit" class=" buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5  text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+          <button type="submit" @click="login()" class=" buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5  text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
         </div>
         <div>
-      <button @click="handleSignIn" class="buttonCustomStyle flex  w-full items-center justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <button @click="handleSignIn" class="buttonCustomStyle flex  w-full items-center justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           <img src="@/assets/icons/google-icon.png" class="mx-2 h-5 w-auto"></img>
           Login with Google</button>
-      </div>
+        </div>
       </form>
       <form v-else class="space-y-6" action="#" method="POST">
         <div>
