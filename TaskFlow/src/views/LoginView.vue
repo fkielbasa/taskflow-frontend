@@ -31,10 +31,14 @@
         </div>
 
         <div>
-          <button type="submit" class=" buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+          <button type="submit" class=" buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5 mb-3 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
         </div>
       </form>
-
+      <div>
+      <button class="buttonCustomStyle flex  w-full items-center justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <img src="@/assets/icons/google-icon.png" class="mx-2 h-5 w-auto"></img>
+          Login with Google</button>
+      </div>
       <p class="mt-10 text-center text-sm text-gray-500">
         Not a member?
         <RouterLink to="/register" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Register now!</RouterLink >
