@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AboutView from "@/views/AboutView.vue";
-import Navbar from "@/components/Navbar.vue";
+import AboutView from "./views/AboutView.vue";
+import Navbar from "./components/Navbar.vue";
 
 </script>
 
