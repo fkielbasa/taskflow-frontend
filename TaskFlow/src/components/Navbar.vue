@@ -1,16 +1,14 @@
 <template>
-  <nav class="m-0 bg-white flex justify-between top-0 left-0 w-full h-16
-              hover:shadow-md">
-    <div>
+  <nav class="m-0 bg-white flex justify-between w-full h-16
+              hover:shadow-md fixed top-0 left-0">
+    <ul class="flex ml-[50px] ">
       <img  alt="" class="logo" src="@/assets/logo/TaskFlowSmallLogo.png" width="50" height="50">
-    </div>
-    <ul class="flex ">
       <li 
         v-for="(page, index) in pages" 
         :key="index" 
         class="py-3 cursor-pointer mx-3 m-auto"
       >
-          <nav-item :page="page"></nav-item>
+          <nav-item :page="page" @click="scrollToSection(page)"></nav-item>
       </li>
     </ul>
     <div>
@@ -32,6 +30,15 @@ export default {
         return {
             pages: ['Home', 'About', 'Authors']
         }
+    },
+  methods: {
+    scrollToSection(id: string){
+      const element: HTMLElement | null = document.getElementById(id);
+      console.log("tes")
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      }
     }
+  }
 }
 </script>
