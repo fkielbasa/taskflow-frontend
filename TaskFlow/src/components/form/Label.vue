@@ -8,5 +8,7 @@
 </script>
 
 <template>
-  <label :for="name" class="block text-sm font-medium leading-6 text-gray-900">{{content}}</label>
+  <div class="flex items-center justify-between">
+    <label :for="name" class="block text-sm font-medium leading-6 text-gray-900">{{content}}</label>
+  </div>
 </template>

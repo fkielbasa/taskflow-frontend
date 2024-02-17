@@ -1,13 +1,25 @@
 <script setup lang="ts">
-  import Label from "@/components/form/Label.vue";
-  import Input from "@/components/form/Input.vue";
+import Label from "@/components/form/Label.vue";
+import Input from "@/components/form/Input.vue";
 
-  import { ref } from 'vue';
+import { ref } from 'vue';
 
-  const option1 = ref(false);
-  const first = () => {
-    option1.value = true;
-  }
+const section = ref(false);
+const buttonNext = ref(true);
+const buttonSign = ref(false);
+const elementToScroll = ref<HTMLElement | null>(null);
+
+const showSection = () => {
+    section.value = true;
+    setTimeout(() => {
+      if (elementToScroll.value) {
+        elementToScroll.value.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 10);
+  buttonNext.value = false;
+  buttonSign.value = true;
+};
+
 </script>
 
 <template>
@@ -21,36 +33,38 @@
       <form class="space-y-6" action="#" method="POST">
 
         <div>
-          <div class="flex items-center justify-between">
-            <Label name="email" content="Email address"/>
-          </div>
+          <Label name="email" content="Email address"/>
           <Input id="email" name="email" type="email" autocomplete="email" />
         </div>
 
         <div>
-          <div class="flex items-center justify-between">
-            <Label name="password" content="Password"/>
-          </div>
+          <Label name="password" content="Password"/>
           <Input id="password" name="password" type="password" autocomplete="current-password" />
         </div>
 
         <div>
-          <div class="flex items-center justify-between">
-            <Label name="password" content="Repeat password"/>
-          </div>
+          <Label name="password" content="Repeat password"/>
           <Input id="password" name="password" type="password" autocomplete="current-password" />
         </div>
 
-        <button type="button" @click="first" class="buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Next step</button>
+        <button v-if="buttonNext" type="button" @click="showSection" class="buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Next step</button>
 
-        <div>
-          <div v-if="option1">
-            <h2>Show Me</h2>
-          </div>
+
+          <div v-if="section" ref="elementToScroll" class="space-y-6">
+            <div>
+              <Label name="name" content="First name"/>
+              <Input id="name" name="name" type="email" autocomplete="name" />
+            </div>
+
+            <div>
+              <Label name="surname" content="last name"/>
+              <Input id="surname" name="surname" type="email" autocomplete="surname" />
+            </div>
+
 
         </div>
 
-        <button type="submit" class="buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
+        <button v-if="buttonSign" type="submit" class="buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
 
       </form>
     </div>
