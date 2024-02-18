@@ -13,8 +13,10 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "axios": "^1.6.7",
+    "jwt-decode": "^4.0.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
+    "vue-jwt-decode": "^0.1.0",
     "vue-router": "^4.2.5",
     "vue3-google-oauth2": "^1.0.7"
   },

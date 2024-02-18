@@ -2,6 +2,7 @@
  import { inject } from 'vue';
  import axios from 'axios';
  import { useRouter } from 'vue-router';
+ import {TOKEN_KEY} from "@/config/auth";
 export default {
   data() {
     return {
@@ -42,7 +43,7 @@ export default {
         console.log(error);
       }
     },
-    async login(event) {
+    async login() {
       axios.post(
         'https://localhost:7084/api/v1/Auth/login',
         {
@@ -52,6 +53,7 @@ export default {
       )
       .then(response => {
         console.log('Response:', response.data);
+        localStorage.setItem(TOKEN_KEY, response.data)
         this.$router.push('/tasks');
       })
       .catch(error => {
