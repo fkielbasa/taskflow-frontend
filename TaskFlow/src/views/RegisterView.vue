@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import Label from "@/components/form/Label.vue";
 import Input from "@/components/form/Input.vue";
-
 import { ref } from 'vue';
 
+// variable declarations
 const section = ref(false);
 const buttonNext = ref(true);
 const buttonSign = ref(false);
 const elementToScroll = ref<HTMLElement | null>(null);
 
+// show section and scroll to it
 const showSection = () => {
     section.value = true;
     setTimeout(() => {
@@ -53,15 +54,18 @@ const showSection = () => {
           <div v-if="section" ref="elementToScroll" class="space-y-6">
             <div>
               <Label name="name" content="First name"/>
-              <Input id="name" name="name" type="email" autocomplete="name" />
+              <Input id="name" name="name" type="text" autocomplete="name" />
             </div>
 
             <div>
-              <Label name="surname" content="last name"/>
-              <Input id="surname" name="surname" type="email" autocomplete="surname" />
+              <Label name="surname" content="Last name"/>
+              <Input id="surname" name="surname" type="text" autocomplete="surname" />
             </div>
 
-
+            <div>
+              <Label name="birthDate" content="Date of birth"/>
+              <Input id="birthDate" name="birthDate" type="date" autocomplete="birthDate" />
+            </div>
         </div>
 
         <button v-if="buttonSign" type="submit" class="buttonCustomStyle flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
