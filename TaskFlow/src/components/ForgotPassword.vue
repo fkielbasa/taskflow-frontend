@@ -1,14 +1,18 @@
 <script lang="ts">
 import axios from "axios";
-import Alert from "@/components/DangerAlert.vue";
+import SuccessAlert from "@/components/SuccessAlert.vue";
+import DangerAlert from "@/components/DangerAlert.vue";
 export default {
   name: 'Forgot-Password',
-  components: {Alert},
+  components: {
+    DangerAlert,
+    SuccessAlert
+  },
   data() {
     return {
       email: '',
       emailCheck: false,
-      alert: false
+      isEmailSent: false
     }
   },
   methods: {
@@ -18,15 +22,20 @@ export default {
       )
           .then(response => {
             console.log(response.data)
-            this.$router.push('home')
+            this.isEmailSent = true;
           })
           .catch(error => {
             console.error('Error:', error)
             this.emailCheck = true;
-            this.alert = false;
           });
     }
-  }
+  },
+  watch: {
+    email() {
+        this.isEmailSent = false;
+        this.emailCheck = false;
+    }
+  },
 }
 </script>
 
@@ -39,7 +48,8 @@ export default {
       </div>
       <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
         <form class="space-y-6" @submit.prevent="sendRecoveryMail" method="POST">
-          <Alert v-if="emailCheck" error="Incorrect email"></Alert>
+          <DangerAlert v-if="emailCheck" error="Incorrect email"/>
+          <SuccessAlert v-if="isEmailSent" message="Email has been sent"/>
           <div>
             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
             <div class="mt-1">

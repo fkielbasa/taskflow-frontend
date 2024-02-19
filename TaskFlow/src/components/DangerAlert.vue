@@ -1,6 +1,6 @@
 <script lang="ts">
   export default {
-    name: 'Alert',
+    name: 'DangerAlert',
     props: ['error'],
   }
 </script>

@@ -1,12 +1,14 @@
 <script lang="ts">
  import { inject } from 'vue';
  import axios from 'axios';
- import Alert from "@/components/DangerAlert.vue";
+ import DangerAlert from "@/components/DangerAlert.vue";
  import { useRouter } from 'vue-router';
  import {TOKEN_KEY} from "@/config/auth";
 export default {
   name: 'Login',
-  components: {Alert},
+  components: {
+    DangerAlert,
+  },
   data() {
     return {
       email: '',
@@ -16,9 +18,12 @@ export default {
     }
   },
   watch: {
-    // showForgotPasswordForm(newValue) {
-    //   this.message = newValue ? "Recovery password" : "Sign in to your account";
-    // }
+    email(){
+      this.emailCheck = false;
+    },
+    password(){
+      this.passwordCheck = false;
+    }
   },
   methods: {
     async handleSignIn() {
@@ -83,7 +88,7 @@ export default {
     </div>
     <div class="mt-5 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" @submit.prevent="login" method="POST">
-        <Alert v-if="emailCheck" error="Incorrect login or email"></Alert>
+        <DangerAlert v-if="emailCheck && passwordCheck" error="Incorrect login or email"/>
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <div class="mt-1">
