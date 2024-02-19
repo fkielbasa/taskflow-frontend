@@ -1,8 +1,3 @@
-<script setup lang="ts">
-
-
-</script>
-
 <template>
   <main id="Home" class="flex justify-evenly items-center bg-white">
     <div class="m-0 w-96 flex flex-col gap-20">
@@ -19,3 +14,7 @@
 
 
 </template>
+<script setup lang="ts">
+
+
+</script>
