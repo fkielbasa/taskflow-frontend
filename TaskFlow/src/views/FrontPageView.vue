@@ -1,8 +1,10 @@
 <template>
     <Navbar></Navbar>
-    <HomeView></HomeView>
-    <AboutView></AboutView>
-    <AuthorsView></AuthorsView>
+    <div id="frontPage">
+      <HomeView></HomeView>
+      <AboutView></AboutView>
+      <AuthorsView></AuthorsView>
+    </div>
 </template>
 
 <script lang="ts">

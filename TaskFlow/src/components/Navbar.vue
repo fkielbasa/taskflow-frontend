@@ -1,5 +1,5 @@
 <template>
-  <nav class="m-0 bg-white flex justify-between w-full h-16
+  <nav class="m-0 bg-white flex justify-between w-screen h-16
               shadow-md fixed top-0 left-0">
     <ul class="flex">
       <img  alt="" class="logo mx-10" src="@/assets/logo/TaskFlowSmallLogo.png" width="50" height="50">
@@ -15,10 +15,11 @@
     </ul>
     <div>
       <RouterLink to="/register">
-        <button class="text-blue mx-2 px-4 py-2 text-lg h-full font-semibold">Register</button>
+        <button class="text-grey mx-2 px-4 py-2 text-lg h-full font-medium">Register</button>
       </RouterLink>
       <RouterLink to="/login" >
-        <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white h-full font-semibold text-lg">Login</button>
+        <!-- <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white h-full font-medium text-lg">Login</button> -->
+        <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white font-medium text-lg rounded">Login</button>
       </RouterLink>
     </div>
   </nav>
