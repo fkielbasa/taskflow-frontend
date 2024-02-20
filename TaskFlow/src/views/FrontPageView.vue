@@ -1,8 +1,8 @@
 <template>
-    <navbar></navbar>
-    <home-view></home-view>
-    <about-view></about-view>
-    <authors-view></authors-view>
+    <Navbar></Navbar>
+    <HomeView></HomeView>
+    <AboutView></AboutView>
+    <AuthorsView></AuthorsView>
 </template>
 
 <script lang="ts">

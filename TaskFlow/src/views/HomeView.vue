@@ -1,5 +1,5 @@
 <template>
-  <main id="Home" class="flex justify-evenly items-center bg-white">
+  <main id="Home" class="flex justify-evenly items-center bg-white min-h-screen">
     <div class="m-0 w-96 flex flex-col gap-20">
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, perferendis! Delectus perferendis ipsa earum deleniti eligendi velit dolorum natus at corporis ab ut eum mollitia amet eos similique, voluptas, ducimus deserunt, quidem optio iste! Quibusdam rerum ipsum distinctio quae ratione unde voluptatum veritatis officiis accusamus. Labore dicta quam inventore fuga!</p>

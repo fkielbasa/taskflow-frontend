@@ -6,12 +6,12 @@
       <li 
         v-for="(section, index) in sections" 
         :key="index" 
-        class="py-0 cursor-pointer m-auto h-full  px-6 flex items-center border-b-2 border-transparent text-grey hover:text-blue"
-        
+        class="py-0 cursor-pointer m-auto h-full  px-6 flex items-center border-b-2 border-transparent text-grey hover:text-blue transition-all duration-500"
         @click="scrollToSection(section)"
       >
-          <nav-item :section="section" ></nav-item>
+          <NavItem :section="section" ></NavItem>
       </li>
+      <p><a href="https://storyset.com/web">Web illustrations by Storyset</a></p>
     </ul>
     <div>
       <RouterLink to="/register">
@@ -36,9 +36,11 @@ const setActiveSection = () => {
 
     if (element && (element.offsetTop <= window.scrollY + 20) && 
         (element.offsetTop + element.offsetHeight > window.scrollY + 20)) {
-      listItem.classList.add('border-blue','!text-blue');
+      // listItem.classList.add('border-blue','!text-blue');
+      listItem.classList.add('!text-blue');
     } else {
-      listItem.classList.remove('border-blue','!text-blue');
+      // listItem.classList.remove('border-blue','!text-blue');
+      listItem.classList.remove('!text-blue');
     }
 
   })
