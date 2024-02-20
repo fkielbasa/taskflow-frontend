@@ -3,7 +3,7 @@
  import axios from 'axios';
  import DangerAlert from "@/components/DangerAlert.vue";
  import { useRouter } from 'vue-router';
- import {TOKEN_KEY} from "@/config/auth";
+ import {TOKEN_KEY,BASE_URL} from "@/config/auth";
 export default {
   name: 'Login',
   components: {
@@ -51,7 +51,7 @@ export default {
     },
     async login() {
       axios.post(
-        'https://localhost:7084/api/v1/Auth/login',
+        `${BASE_URL}/Auth/login`,
         {
           email: this.email,
           password: this.password

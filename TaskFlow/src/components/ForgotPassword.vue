@@ -2,6 +2,7 @@
 import axios from "axios";
 import SuccessAlert from "@/components/SuccessAlert.vue";
 import DangerAlert from "@/components/DangerAlert.vue";
+import {BASE_URL} from "@/config/auth";
 export default {
   name: 'Forgot-Password',
   components: {
@@ -18,7 +19,7 @@ export default {
   methods: {
     async sendRecoveryMail() {
       axios.post(
-          `https://localhost:7084/api/v1/Auth/forgot-password?email=${this.email}`
+          `${BASE_URL}/Auth/forgot-password?email=${this.email}`
       )
           .then(response => {
             console.log(response.data)

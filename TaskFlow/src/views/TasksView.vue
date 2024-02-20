@@ -1,5 +1,5 @@
 <script lang="ts">
-import { config,getUserFromToken } from '@/config/auth';
+import { config,getUserFromToken,logoutUser } from '@/config/auth';
 
 export default {
   methods: {

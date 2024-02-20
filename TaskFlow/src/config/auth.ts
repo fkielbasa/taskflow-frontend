@@ -1,6 +1,7 @@
 import VueJwtDecode from 'vue-jwt-decode';
 import type {User} from "@/config/user";
 export const TOKEN_KEY = "taskflow";
+export const BASE_URL = "https://localhost:7084/api/v1";
 
 export const getUserFromToken = (): User | null => {
     const token = localStorage.getItem(TOKEN_KEY);
