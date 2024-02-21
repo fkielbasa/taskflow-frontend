@@ -1,8 +1,8 @@
 <template>
-  <nav class="m-0 bg-transparent flex justify-between w-screen h-16
-               fixed top-0 left-0"
-      :class="{'bg-white': setColorChange}"
-               >
+  <nav 
+    class="m-0 bg-transparent flex justify-between w-screen h-16 fixed top-0 left-0 z-10"
+    :class="{'bg-black': setColorChange}"
+  >
     <ul class="flex">
       <img  alt="" class="logo mx-10" src="@/assets/logo/TaskFlowSmallLogo.png" width="50" height="50">
       <li 
@@ -19,7 +19,6 @@
         <button class="text-blue mx-2 px-4 py-2 text-lg h-full font-medium">Register</button>
       </RouterLink>
       <RouterLink to="/login" >
-        <!-- <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white h-full font-medium text-lg">Login</button> -->
         <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white font-medium text-lg rounded">Login</button>
       </RouterLink>
     </div>
@@ -29,6 +28,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import NavItem from './NavItem.vue'
+
 
 const sections: string[] = ['Home', 'About', 'Authors']
 const setColorChange = ref(false)
@@ -65,7 +65,8 @@ window.addEventListener("scroll", changeNavbarColor);
 const scrollToSection = (id: string)  => {
   const element: HTMLElement | null = document.getElementById(id);
   if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    element.scrollTop -= 30; 
   }
 }
 

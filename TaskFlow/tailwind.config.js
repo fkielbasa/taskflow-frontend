@@ -1,3 +1,5 @@
+import { url } from 'inspector'
+
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
 export default {
@@ -14,8 +16,12 @@ export default {
         blue: '#2185D5',
         white: '#F3F3F3',
         grey: '#3A4750',
-        black: '#303841'
-      }
+        black: '#303841',
+        full_black: '#24292f'
+      },
+      backgroundImage: theme => ({
+        'background-home': url('/images/background.png')
+      })
     },
   },
   plugins: [

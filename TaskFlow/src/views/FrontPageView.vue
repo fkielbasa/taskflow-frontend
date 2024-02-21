@@ -1,10 +1,12 @@
 <template>
     <Navbar></Navbar>
-    <div id="frontPage">
+    <!-- <div id="frontPage"> -->
       <HomeView></HomeView>
       <AboutView></AboutView>
       <AuthorsView></AuthorsView>
-    </div>
+      <p class=" bg-black h-20 w-full"><a href="https://storyset.com/web">Web illustrations by Storyset</a></p> 
+    <!-- </div> -->
+    
 </template>
 
 <script lang="ts">

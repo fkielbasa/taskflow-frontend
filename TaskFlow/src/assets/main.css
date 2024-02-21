@@ -17,10 +17,45 @@
 body {
   margin: 0;
   padding: 0;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 #frontPage{
-  height: 100vh;
+  max-height: 100vh;
   overflow-y: auto;
+}
+
+#Home {
+  /* background-image: url('./images/background.png'); */
+}
+
+#info {
+  position: relative;
+  top: -55px;
+  height: 70px;
+  /* font-size: 60px; */
+  color: black
+}
+
+#info:before,
+#info:after {
+  /* padding: 10px 0; */
+  /* text-indent: 10px; */
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  content: attr(data-content);
+  font-size: 70px;
+}
+
+#info:before {
+  /* background-color: aqua; */
+  /* color: #2185D5; */
+  height: 100%;
+}
+
+#info:after {
+  /* background-color: red; */
+  /* color: #303841; */
+  height: 65%;
 }
