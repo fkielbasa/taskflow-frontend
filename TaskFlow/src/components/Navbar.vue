@@ -1,10 +1,10 @@
 <template>
   <nav 
-    class="m-0 bg-transparent flex justify-between w-screen h-16 fixed top-0 left-0 z-10"
-    :class="{'bg-black': setColorChange}"
+    class="m-0  flex justify-between w-screen h-16 fixed top-0 left-0 z-10"
+    :class="{'bg-black': setColorChange, 'bg-transparent': !setColorChange}"
   >
     <ul class="flex">
-      <Logo></Logo>
+      <Logo />
       <li 
         v-for="(section, index) in sections" 
         :key="index" 
@@ -16,10 +16,14 @@
     </ul>
     <div class=" mx-4">
       <RouterLink to="/register">
-        <button class="text-blue mx-2 px-4 py-2 text-lg h-full font-medium">Register</button>
+        <button class="text-blue mx-2 px-4 py-2 text-lg h-full font-medium">
+          Register
+        </button>
       </RouterLink>
       <RouterLink to="/login" >
-        <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white font-medium text-lg rounded">Login</button>
+        <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white font-medium text-lg rounded">
+          Login
+        </button>
       </RouterLink>
     </div>
   </nav>
@@ -40,12 +44,10 @@ const setActiveSection = () => {
     const listItem = document.querySelectorAll('nav li')[index];
     const frontPage = document.getElementById('frontPage')
 
-    if (element && (element.offsetTop <= window.scrollY + 20) && 
-        (element.offsetTop + element.offsetHeight > window.scrollY + 20)) {
-      // listItem.classList.add('border-blue','!text-blue');
+    if (element && (element.offsetTop <= window.scrollY + 60) && 
+        (element.offsetTop + element.offsetHeight > window.scrollY + 60)) {
       listItem.classList.add('!text-blue');
     } else {
-      // listItem.classList.remove('border-blue','!text-blue');
       listItem.classList.remove('!text-blue');
     }
 
@@ -62,13 +64,17 @@ const changeNavbarColor = () => {
 };
 window.addEventListener("scroll", changeNavbarColor);
 
-
 const scrollToSection = (id: string)  => {
   const element: HTMLElement | null = document.getElementById(id);
   if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-    element.scrollTop -= 30; 
+    const rect = element.getBoundingClientRect();
+    window.scrollTo({
+      top: rect.top - 50 + window.scrollY,
+      left: rect.left + window.scrollX,
+      behavior: 'smooth'
+    });
   }
 }
+
 
 </script>
