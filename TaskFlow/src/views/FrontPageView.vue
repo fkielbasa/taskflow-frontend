@@ -4,7 +4,7 @@
       <HomeView></HomeView>
       <AboutView></AboutView>
       <AuthorsView></AuthorsView>
-      <p class=" bg-black h-20 w-full"><a href="https://storyset.com/web">Web illustrations by Storyset</a></p> 
+      <Footer></Footer>
     <!-- </div> -->
     
 </template>
@@ -14,8 +14,9 @@ import HomeView from '@/views/HomeView.vue'
 import AboutView from '@/views/AboutView.vue'
 import AuthorsView from '@/views/AuthorsView.vue'
 import Navbar from '@/components/Navbar.vue'
+import Footer from'@/components/Footer.vue'
 export default {
-  components: { Navbar, HomeView, AboutView, AuthorsView },
+  components: { Navbar, HomeView, AboutView, AuthorsView, Footer },
 
   }
 

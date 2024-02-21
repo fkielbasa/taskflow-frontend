@@ -4,7 +4,7 @@
     :class="{'bg-black': setColorChange}"
   >
     <ul class="flex">
-      <img  alt="" class="logo mx-10" src="@/assets/logo/TaskFlowSmallLogo.png" width="50" height="50">
+      <Logo></Logo>
       <li 
         v-for="(section, index) in sections" 
         :key="index" 
@@ -28,6 +28,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import NavItem from './NavItem.vue'
+import Logo from './Logo.vue';
 
 
 const sections: string[] = ['Home', 'About', 'Authors']
