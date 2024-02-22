@@ -8,7 +8,7 @@
           :alt='props.alt'
           class="size-[300px] sm:size-[450px] md:size-[500px] xl:size-[550px]"
         >
-        <p class="font-medium text-full_black text-justify text-xl sm:text-2xl">
+        <p class="font-medium text-full_black text-justify text-xl">
           {{ props.content }}
         </p>
     </section>

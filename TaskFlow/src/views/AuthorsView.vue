@@ -3,7 +3,7 @@
         id="Authors" 
         class=" h-[400px] relative bg-grey flex flex-col items-center py-8"
     >
-        <h3 class="font-bold text-blue text-4xl h-1/5 min-[500px]:text-5xl sm:text-5xl lg:text-6xl ">
+        <h3 class="font-bold text-blue text-4xl h-1/5 min-[500px]:text-5xl sm:text-5xl ">
             Authors
         </h3>
         <img 
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import * as _ from "lodash";
 import AuthorItem from '@/components/AuthorItem.vue';
 
@@ -46,5 +46,22 @@ const authors = ref([
         link: 'https://github.com/Narothe'
     }
 ])
+let items: NodeListOf<HTMLElement> | null = null;
 
+onMounted(() => {
+  items = document.querySelectorAll('.author-name');
+});
+
+const showItems = () => {
+  if (items) {
+    const triggerBottom = window.innerHeight / 5 * 4;
+    items.forEach((item) => {
+      const itemTop = item.getBoundingClientRect().top;
+      if(itemTop < triggerBottom) {
+        item.classList.add('!opacity-100');
+      }
+    });
+  }
+}
+window.addEventListener('scroll', showItems );
 </script>
