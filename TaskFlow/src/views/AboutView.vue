@@ -3,10 +3,10 @@
     id="About" 
     class=" bg-blue flex flex-col items-center justify-center py-10 scroll-mt-[-10px] overflow-x-hidden"
   >
-    <h3 class=" aboutInfo font-bold text-full_black text-5xl">
+    <h3 class=" aboutInfo font-bold text-full_black  text-4xl min-[500px]:text-5xl sm:text-6xl ">
       About
     </h3>
-    <div class=" max-w-screen-lg flex flex-col items-center px-6 ">
+    <div class=" max-w-screen-xl flex flex-col items-center px-6 ">
       <about-item
         :img="team"
         alt="Picture of teamwork"
