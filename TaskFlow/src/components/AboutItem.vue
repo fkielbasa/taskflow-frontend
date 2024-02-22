@@ -1,10 +1,23 @@
 <template>
-    <section>
-        <img :src="image" :alt='alt'>
-        <p>{{ content }}</p>
+    <section 
+      class="flex justify-around items-center gap-x-10"
+      :class="{'flex-row-reverse': props.reversed}"
+    >
+        <img 
+          :src="props.img" 
+          :alt='props.alt'
+        >
+        <p class=" font-medium">
+          {{ props.content }}
+        </p>
     </section>
 </template>
 <script setup lang="ts">
-const state = defineProps(['image', 'alt', 'content', 'reverse'])
+const props = defineProps<{
+    img?: string
+    alt?: string
+    content?: string,
+    reversed?: boolean
+}>()
 
 </script>

@@ -17,7 +17,7 @@
             class="absolute left-5 top-5 w-40"
         >
         <div class="flex justify-center items-center gap-20">
-            <AuthorItem  
+            <author-item  
                 v-for="(a, index) in _.shuffle(authors)"
                 :key="index"
                 :link="a.link"

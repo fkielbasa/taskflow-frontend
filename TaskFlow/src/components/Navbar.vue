@@ -4,14 +4,14 @@
     :class="{'bg-black': setColorChange, 'bg-transparent': !setColorChange}"
   >
     <ul class="flex">
-      <Logo />
+      <logo />
       <li 
         v-for="(section, index) in sections" 
         :key="index" 
         class="py-0 cursor-pointer m-auto h-full  px-6 flex items-center border-b-2 border-transparent text-grey hover:text-blue transition-all duration-500"
         @click="scrollToSection(section)"
       >
-          <NavItem :section="section" />
+          <nav-item :section="section" />
       </li>
     </ul>
     <div class=" mx-4">
