@@ -8,12 +8,12 @@
         </h3>
         <img 
             src="@/assets/logo/github-logo.svg" 
-            alt="Logo platformy Github" 
+            alt="Logo of Github" 
             class="h-full absolute top-0 right-0 m-0 p-0"
         >
         <img 
             src="@/assets/logo/gh.png" 
-            alt="Nazwe platformy Github" 
+            alt="Name of Github" 
             class="absolute left-5 top-5 w-40"
         >
         <div class="flex justify-center items-center gap-20">

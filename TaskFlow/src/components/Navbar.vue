@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import NavItem from './NavItem.vue'
-import Logo from './Logo.vue';
+import Logo from '@/components/Logo.vue';
 
 const sections: string[] = ['Home', 'About', 'Authors']
 const setColorChange = ref(false)
