@@ -1,15 +1,14 @@
 <template>
     <section 
-      class="aboutInfo flex justify-around items-center  transition-all duration-500 ease-out"
-      :class="{'flex-row-reverse': props.reversed, '-translate-x-[200%]': props.reversed, 'translate-x-[200%]': !props.reversed}"
+      class="aboutInfo flex flex-col justify-around items-center  transition-all duration-500 ease-out md:flex-row"
+      :class="{'flex-row-reverse md:flex-row-reverse': props.reversed, '-translate-x-[200%]': props.reversed, 'translate-x-[200%]': !props.reversed}"
     >
         <img 
           :src="props.img" 
           :alt='props.alt'
-          width="400px"
-          height="400px"
+          class="size-[400px] max-[640px]:size-[300px]"
         >
-        <p class="font-medium">
+        <p class="font-medium text-full_black text-justify">
           {{ props.content }}
         </p>
     </section>

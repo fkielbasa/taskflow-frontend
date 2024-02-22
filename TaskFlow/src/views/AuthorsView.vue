@@ -1,9 +1,9 @@
 <template>
     <section 
         id="Authors" 
-        class=" h-[400px] relative bg-grey flex py-2 justify-center"
+        class=" h-[400px] relative bg-grey flex flex-col items-center py-8"
     >
-        <h3 class=" h-1/5 font-bold text-full_black text-5xl absolute top-2">
+        <h3 class="font-bold text-blue text-5xl h-1/5">
             Authors
         </h3>
         <img 
@@ -16,7 +16,7 @@
             alt="Name of Github" 
             class="absolute left-5 top-5 w-40"
         >
-        <div class="flex justify-center items-center gap-20">
+        <div class="flex justify-center items-center gap-20 h-3/5">
             <author-item  
                 v-for="(a, index) in _.shuffle(authors)"
                 :key="index"

@@ -6,7 +6,7 @@
     <h3 class=" aboutInfo font-bold text-full_black text-5xl">
       About
     </h3>
-    <div class=" max-w-screen-lg flex flex-col items-center">
+    <div class=" max-w-screen-lg flex flex-col items-center px-6 ">
       <about-item
         :img="team"
         alt="Picture of teamwork"
@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import AboutItem from '@/components/AboutItem.vue'
 import team from '@/assets/gifs/team.gif'
-import task from '@/assets/gifs/add_tasks.gif'
+import task from '@/assets/gifs/add_task.gif'
 import done from '@/assets/gifs/done.gif'
 import { onMounted } from 'vue';
 
