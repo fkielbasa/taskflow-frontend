@@ -17,10 +17,7 @@ export default {
         grey: '#3A4750',
         black: '#303841',
         full_black: '#24292f'
-      },
-      backgroundImage: theme => ({
-        'background-home': url('/images/background.png')
-      })
+      }
     },
   },
   plugins: [
