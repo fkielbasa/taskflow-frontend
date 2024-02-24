@@ -1,31 +1,38 @@
 <template>
   <nav 
-    class="nav m-0  flex justify-between w-screen h-16 fixed top-0 left-0 z-10"
+    class="nav m-0  flex justify-center w-screen h-20 fixed top-0 left-0 z-10 border-b-[1px] border-gray-300 min-[550px]:h-14"
     :class="{'bg-black': setColorChange, 'bg-transparent': !setColorChange}"
   >
-    <ul class="flex">
-      <logo />
-      <li 
-        v-for="(section, index) in sections" 
-        :key="index" 
-        class="py-0 cursor-pointer m-auto h-full  px-6 flex items-center border-b-2 border-transparent text-grey hover:text-blue transition-all duration-500"
-        @click="scrollToSection(section)"
-      >
-          <nav-item :section="section" />
-      </li>
-    </ul>
-    <div class=" mx-4">
-      <RouterLink to="/register">
-        <button class="text-blue mx-2 px-4 py-2 text-lg h-full font-medium">
+    <div class="max-w-screen-2xl w-full flex justify-center items-center min-[500px]:justify-evenly min-[500px]:mx-12 min-[550px]:mx-4 sm:justify-between sm:mx-4 xl:mx-14 min-[1920px]:mx-0">
+      <div class="flex items-center justify-between">
+        <logo class="size-[45px] min-[550px]:size-[35px]" />
+        <ul class="flex flex-col items-center min-[550px]:flex-row">
+          <li 
+            v-for="(section, index) in sections" 
+            :key="index" 
+            class="py-0 cursor-pointer m-auto h-full  px-6 flex items-center border-b-2 border-transparent text-grey hover:text-blue transition-all duration-500"
+            @click="scrollToSection(section)"
+          >
+              <nav-item :section="section" />
+          </li>
+        </ul>
+      </div>
+      <div class=" mx-4 flex flex-col-reverse items-center  justify-center min-[550px]:flex-row ">
+        <RouterLink 
+          to="/register"
+          class="text-blue mx-0 px-4 py-2 text-sm h-full font-medium sm:text-base"
+        >
           Register
-        </button>
-      </RouterLink>
-      <RouterLink to="/login" >
-        <button  class="ml-2 mr-0 px-10 py-2 bg-blue text-white font-medium text-lg rounded">
+        </RouterLink>
+        <RouterLink 
+          to="/login" 
+          class="mx-0 px-3 py-1 bg-blue text-white font-medium text-sm rounded min-[550px]:px-4 sm:px-6 sm:text-base" 
+        >
           Login
-        </button>
-      </RouterLink>
+        </RouterLink>
+      </div>
     </div>
+    
   </nav>
 </template>
 <script setup lang="ts">
@@ -71,11 +78,11 @@ const setActiveSection = () => {
       }
     }
   }
-  document.querySelectorAll('.nav li').forEach(item => {
+  document.querySelectorAll('.nav ul li').forEach(item => {
     item.classList.remove('!text-blue');
   });
   if (currentActiveIndex !== -1) {
-    const activeListItem = document.querySelectorAll('.nav li')[currentActiveIndex];
+    const activeListItem = document.querySelectorAll('.nav ul li')[currentActiveIndex];
     activeListItem.classList.add('!text-blue');
   }
 }

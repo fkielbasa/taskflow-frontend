@@ -1,5 +1,5 @@
 <template>
-  <a class=" text-lg font-semibold ">
+  <a class=" text-sm font-semibold sm:text-base">
     {{ section }}
   </a>
 </template>
