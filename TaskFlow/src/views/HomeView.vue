@@ -12,16 +12,16 @@
         Innovate, Collaborate, Succeed. Simplify Your Workflow, Amplify Your Impact!
       </p>
       <div class="flex gap-5 my-10">
-        <button class="bg-blue px-4 py-2 rounded-lg flex gap-x-2 items-center" >
+        <button class="bg-blue hover:opacity-90 px-4 py-2 rounded-lg flex gap-x-2 items-center" >
           <img src="@/assets/images/play_icon.svg" alt="play icon" class="size-[20px]">
           <p class=" text-white font-bold">Why TaskFlow</p>
         </button>
-        <button class="bg-gray-400 px-4 py-2 rounded-lg flex gap-x-2 items-center" >
-          <p class=" text-white font-bold">Get started</p>
-          <img src="@/assets/images/arrow.svg" alt="arrow icon" class="size-[20px]">
+        <button class="bg-gray-400 px-4 py-2 rounded-lg flex gap-x-2 items-center group" >
+          <p class=" text-white font-bold">Getting started</p>
+          <img src="@/assets/images/arrow.svg" alt="arrow icon" class="size-[20px] relative right-1 top-0 group-hover:right-[-5px] transition-all duration-500">
         </button>
       </div>
-        <img src="@/assets/images/arrow_down.svg" alt="" class="animate-bounce bg-green-500 rounded-[50%] size-[35px] absolute bottom-5">
+        <img src="@/assets/images/arrow_down.svg" alt="" class="animate-bounce bg-blue rounded-[50%] size-[35px] absolute bottom-5">
     </div>
   </main>
 

@@ -10,7 +10,7 @@
           <li 
             v-for="(section, index) in sections" 
             :key="index" 
-            class="py-0 cursor-pointer m-auto h-full  px-6 flex items-center border-b-2 border-transparent text-grey hover:text-blue transition-all duration-500"
+            class="py-1 cursor-pointer m-auto h-full  px-6 flex items-center border-b-2 border-transparent text-grey hover:bg-gray-300 hover:rounded-sm transition-all duration-500"
             @click="scrollToSection(section)"
           >
               <nav-item :section="section" />
@@ -42,7 +42,7 @@ import Logo from '@/components/Logo.vue';
 
 const sections: string[] = ['Home', 'About', 'Authors']
 const setColorChange = ref(false)
-
+// FIXME: navbar hover
 const setActiveSection = () => {
   const windowHeight = window.innerHeight;
   let currentActiveIndex = -1;
