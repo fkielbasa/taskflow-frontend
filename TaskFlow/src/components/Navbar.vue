@@ -39,6 +39,7 @@
 import { ref } from 'vue';
 import NavItem from './NavItem.vue'
 import Logo from '@/components/Logo.vue';
+import { scrollToSection } from '@/utils/scroll'
 
 const sections: string[] = ['Home', 'About', 'Authors']
 const setColorChange = ref(false)
@@ -97,16 +98,16 @@ const changeNavbarColor = () => {
 };
 window.addEventListener("scroll", changeNavbarColor);
 
-const scrollToSection = (id: string)  => {
-  const element: HTMLElement | null = document.getElementById(id);
-  if (element) {
-    const rect = element.getBoundingClientRect();
-    window.scrollTo({
-      top: rect.top - 50 + window.scrollY,
-      left: rect.left + window.scrollX,
-      behavior: 'smooth'
-    });
-  }
-}
+// const scrollToSection = (id: string)  => {
+//   const element: HTMLElement | null = document.getElementById(id);
+//   if (element) {
+//     const rect = element.getBoundingClientRect();
+//     window.scrollTo({
+//       top: rect.top - 50 + window.scrollY,
+//       left: rect.left + window.scrollX,
+//       behavior: 'smooth'
+//     });
+//   }
+// }
 
 </script>
