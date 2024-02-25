@@ -5,20 +5,20 @@
   >
     <div class="m-0 max-w-screen-xl flex flex-col items-center">
       <div class="flex flex-col items-center my-8">
-        <h1 class="text-7xl font-extrabold">
+        <h1 class="text-4xl font-extrabold text-center min-[400px]:text-5xl md:text-7xl 2xl:text-8xl">
           Streamline Your 
-          <span class="text-7xl font-extrabold bg-gradient-to-r from-green-500 to-blue  inline-block text-transparent bg-clip-text">
+          <span class="text-5xl min-[400px]:text-6xl md:text-7xl 2xl:text-8xl font-extrabold bg-gradient-to-r from-green-500 to-blue  inline-block text-transparent bg-clip-text">
             Success
           </span>
         </h1>
-        <h3 class="text-7xl font-extrabold">
+        <h3 class="text-4xl min-[400px]:text-5xl md:text-6xl 2xl:text-7xl font-extrabold">
           with TaskFlow
         </h3>
       </div>
-      <p class="text-xl font-semibold text-gray-400">
+      <p class="text-xl min-[400px]:text-2xl xl:text-3xl  font-semibold text-gray-400 text-center">
         Innovate, Collaborate, Succeed. Simplify Your Workflow, Amplify Your Impact!
       </p>
-      <div class="flex gap-5 my-10">
+      <div class="flex gap-2 min-[400px]:gap-5 my-10 mx-4 ">
         <button 
           class="bg-blue hover:opacity-90 px-4 py-2 rounded-lg flex gap-x-2 items-center" 
           @click="scrollToSection('About')"
@@ -28,7 +28,7 @@
             alt="play icon" 
             class="size-[20px]"
           />
-          <p class=" text-white font-bold">
+          <p class=" text-white font-bold text-lg 2xl:text-xl ">
             Why TaskFlow
           </p>
         </button>
@@ -36,7 +36,7 @@
           to="/register" 
           class="bg-gray-400 px-4 py-2 rounded-lg flex gap-x-2 items-center group" 
         >
-          <p class=" text-white font-bold">
+          <p class=" text-white font-bold text-lg 2xl:text-xl ">
             Getting started
           </p>
           <img 
@@ -49,7 +49,7 @@
         <img 
           src="@/assets/images/arrow_down.svg" 
           alt="Scroll to down" 
-          class="animate-bounce bg-blue rounded-[50%] size-[35px] absolute bottom-5 hover:cursor-pointer"
+          class="animate-bounce bg-blue rounded-[50%] size-[35px] p-1 absolute bottom-5 hover:cursor-pointer"
           @click="scrollToSection('About')"
         >
     </div>
