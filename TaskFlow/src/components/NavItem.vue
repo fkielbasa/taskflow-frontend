@@ -1,15 +1,11 @@
 <template>
-  <a class="text-grey  m-2 text-lg h-full">
-    {{ page }}
+  <a class=" text-sm font-semibold sm:text-base">
+    {{ section }}
   </a>
 </template>
 
 <script lang="ts">
 export default {
-    props: ['page'],
+    props: ['section'],
 }
 </script>
-
-<style>
-
-</style>

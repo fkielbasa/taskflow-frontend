@@ -1,9 +1,10 @@
+import { url } from 'inspector'
+
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
 export default {
   mode: 'jit',
-  content: [],
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -14,7 +15,8 @@ export default {
         blue: '#2185D5',
         white: '#F3F3F3',
         grey: '#3A4750',
-        black: '#303841'
+        black: '#303841',
+        full_black: '#24292f'
       }
     },
   },
