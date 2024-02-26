@@ -53,6 +53,11 @@ const showSection = () => {
 
           <div v-if="section" ref="elementToScroll" class="space-y-6">
             <div>
+              <Label name="username" content="Username"/>
+              <Input id="username" name="username" type="text" autocomplete="username" />
+            </div>
+
+            <div>
               <Label name="name" content="First name"/>
               <Input id="name" name="name" type="text" autocomplete="name" />
             </div>
