@@ -9,7 +9,3 @@ export default {
     props: ['section'],
 }
 </script>
-
-<style>
-
-</style>

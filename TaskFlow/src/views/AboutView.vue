@@ -10,19 +10,19 @@
       <about-item
         :img="team"
         alt="Picture of teamwork"
-        content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia veritatis alias totam quos voluptate minima temporibus ipsa nobis quaerat eius quae cupiditate sapiente, dolorem obcaecati in voluptatum inventore magnam sed fugit? Facere eligendi libero perspiciatis dolor ullam distinctio earum ex iusto praesentium velit nesciunt totam aut ipsum obcaecati voluptatum nemo quo excepturi cupiditate facilis, cumque consequatur? Dignissimos vel deleniti quaerat molestias, repellendus, eaque ut officia corrupti quibusdam quidem sequi laboriosam."
+        content="Our application enables easy addition of members to project teams and effective collaboration among them. With a clear team structure and flexible communication tools, users can quickly establish contact, exchange ideas, and collaborate efficiently on projects."
         :reversed="false"
       />
       <about-item
         :img="task"
         alt="Adding task"
-        content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia veritatis alias totam quos voluptate minima temporibus ipsa nobis quaerat eius quae cupiditate sapiente, dolorem obcaecati in voluptatum inventore magnam sed fugit? Facere eligendi libero perspiciatis dolor ullam distinctio earum ex iusto praesentium velit nesciunt totam aut ipsum obcaecati voluptatum nemo quo excepturi cupiditate facilis, cumque consequatur? Dignissimos vel deleniti quaerat molestias, repellendus, eaque ut officia corrupti quibusdam quidem sequi laboriosam."
+        content="The feature of adding new tasks in our application allows for easy creation and management of task lists in the project. Users can quickly add new tasks, define priorities, deadlines, and assign them to specific employees. This ensures clarity in task assignment and effective task management."
         :reversed="true"
       />
       <about-item
         :img="done"
         alt="Done work"
-        content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia veritatis alias totam quos voluptate minima temporibus ipsa nobis quaerat eius quae cupiditate sapiente, dolorem obcaecati in voluptatum inventore magnam sed fugit? Facere eligendi libero perspiciatis dolor ullam distinctio earum ex iusto praesentium velit nesciunt totam aut ipsum obcaecati voluptatum nemo quo excepturi cupiditate facilis, cumque consequatur? Dignissimos vel deleniti quaerat molestias, repellendus, eaque ut officia corrupti quibusdam quidem sequi laboriosam."
+        content="Our application provides a simple way to complete work on tasks and close projects. Upon completion of a task, users can easily mark it as completed, allowing for project progress tracking and identification of completed stages. This also enables transparent reporting and analysis of project performance."
         :reversed="false"
       />
     </div>

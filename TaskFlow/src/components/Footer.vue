@@ -4,7 +4,9 @@
             <logo />
             <p class=" text-center text-lg font-bold text-grey">© TaskFlow. All rights reserved.</p>
         </div>
-        <p class="font-medium text-grey pr-2 text-lg hover:text-blue"><a href="https://storyset.com/web">Web illustrations by Storyset</a></p> 
+        <p class="font-medium text-grey pr-2 text-lg hover:text-blue">
+            <a href="https://storyset.com/web">Web illustrations by Storyset</a>
+        </p> 
     </div>
 </template>
 <script setup lang="ts">

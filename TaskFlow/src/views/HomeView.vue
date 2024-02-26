@@ -15,7 +15,7 @@
           with TaskFlow
         </h3>
       </div>
-      <p class="text-xl min-[400px]:text-2xl xl:text-3xl  font-semibold text-gray-400 text-center">
+      <p class="text-xl min-[400px]:text-2xl xl:text-3xl  font-bold text-gray-500 text-center">
         Innovate, Collaborate, Succeed. Simplify Your Workflow, Amplify Your Impact!
       </p>
       <div class="flex gap-2 min-[400px]:gap-5 my-10 mx-4 ">
