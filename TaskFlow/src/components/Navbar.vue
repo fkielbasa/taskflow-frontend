@@ -1,7 +1,7 @@
 <template>
   <nav 
     class="nav m-0  flex justify-center w-screen h-20 fixed top-0 left-0 z-10 border-b-[1px] border-gray-300 min-[550px]:h-14"
-    :class="{'bg-black': setColorChange, 'bg-transparent': !setColorChange}"
+    :class="{'bg-black': setColorChange, 'bg-white': !setColorChange}"
   >
     <div class="max-w-screen-2xl w-full flex justify-center items-center min-[500px]:justify-evenly min-[500px]:mx-12 min-[550px]:mx-4 sm:justify-between sm:mx-4 xl:mx-14 min-[1920px]:mx-0">
       <div class="flex items-center justify-between">
@@ -17,16 +17,16 @@
           </li>
         </ul>
       </div>
-      <div class=" mx-4 flex flex-col-reverse items-center  justify-center min-[550px]:flex-row ">
+      <div class=" mx-4 flex flex-col-reverse items-center  justify-center min-[550px]:flex-row gap-x-2">
         <RouterLink 
           to="/register"
-          class="text-blue mx-0 px-4 py-2 text-sm h-full font-medium sm:text-base"
+          class="text-grey hover:bg-gray-300 hover:rounded-sm transition-all duration-500 mx-0 px-4 py-1 text-sm h-full font-medium sm:text-base"
         >
           Register
         </RouterLink>
         <RouterLink 
           to="/login" 
-          class="mx-0 px-3 py-1 bg-blue text-white font-medium text-sm rounded min-[550px]:px-4 sm:px-6 sm:text-base" 
+          class="mx-0 px-3 py-1 bg-blue hover:opacity-90 text-white font-medium text-sm rounded min-[550px]:px-4 sm:px-6 sm:text-base" 
         >
           Login
         </RouterLink>
@@ -96,18 +96,5 @@ const changeNavbarColor = () => {
     setColorChange.value = false;
   } 
 };
-window.addEventListener("scroll", changeNavbarColor);
-
-// const scrollToSection = (id: string)  => {
-//   const element: HTMLElement | null = document.getElementById(id);
-//   if (element) {
-//     const rect = element.getBoundingClientRect();
-//     window.scrollTo({
-//       top: rect.top - 50 + window.scrollY,
-//       left: rect.left + window.scrollX,
-//       behavior: 'smooth'
-//     });
-//   }
-// }
 
 </script>

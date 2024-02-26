@@ -1,7 +1,7 @@
 <template>
   <main 
     id="Home" 
-    class="flex justify-evenly items-center bg-background-home min-h-screen relative"
+    class="flex justify-evenly items-center bg-white min-h-screen relative"
   >
     <div class="m-0 max-w-screen-xl flex flex-col items-center">
       <div class="flex flex-col items-center my-8">
