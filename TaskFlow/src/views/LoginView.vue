@@ -113,7 +113,7 @@ export default {
         </div>
         <div>
           <button @click="handleSignIn" class="buttonCustomStyle flex  w-full items-center justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-          <img src="@/assets/icons/google-icon.png" class="mx-2 h-5 w-auto"></img>
+          <img src="@/assets/icons/google-icon.png" class="mx-2 h-5 w-auto"/>
           Login with Google</button>
         </div>
       </form>
@@ -129,8 +129,4 @@ export default {
 
 <style>
   @import '@/assets/styles/CustomStyles.module.css';
-  .border-input-error {
-    border-width: 2px;
-    border-color: #EF4444;
-  }
 </style>

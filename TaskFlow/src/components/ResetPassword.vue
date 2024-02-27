@@ -1,64 +1,68 @@
-<script lang="ts">
+<script setup lang="ts">
 import axios from "axios";
-import SuccessAlert from "@/components/SuccessAlert.vue";
 import DangerAlert from "@/components/DangerAlert.vue";
 import {BASE_URL} from "@/config/auth";
-export default {
-  components: {DangerAlert, SuccessAlert},
-  data() {
-    return {
-      token: this.$route.params.token,
-      isValid: false,
-      password: '',
-      confirmPassword: '',
-      passwordsMatch: false
-    }
-  },
-  methods: {
-    async checkToken(){
-      axios.post(
-          `${BASE_URL}/Auth/check-reset-token?token=${this.token}`
-      )
-          .then(response => {
-            console.log(response.data);
-            this.isValid = true;
-          })
-          .catch(error => {
-            console.log('Error', error);
+import {onMounted, ref, type Ref, watch} from "vue";
+import {type RouteParamValue, useRoute, useRouter} from "vue-router";
+
+const route = useRoute();
+const router = useRouter();
+
+const token: string | RouteParamValue[] = route.params.token;
+const isValid: Ref<boolean> = ref(false);
+const password: Ref<string> = ref('');
+const confirmPassword: Ref<string> = ref('');
+const passwordsMatch: Ref<boolean> = ref(false);
+
+const checkToken = async (): Promise<void> => {
+  axios.post(
+      `${BASE_URL}/Auth/check-reset-token?token=${token}`
+  )
+      .then(response => {
+        console.log(response.data);
+        isValid.value = true;
+      })
+      .catch(error => {
+        console.log('Error', error);
       });
-    },
-    async changePassword(){
-      axios.post(
-          `${BASE_URL}/Auth/change-password?resetToken=${this.token}&newPassword=${this.password}`
-      )
-          .then(response => {
-            console.log(response.data);
-            this.$router.push("/login");
-          })
-          .catch(error => {
-            console.log('Error', error);
-          });
-    },
-    checkPasswords() {
-      if (this.password === this.confirmPassword) {
-        this.changePassword()
-      } else {
-        this.passwordsMatch = true;
-      }
-    }
-  },
-  mounted() {
-    this.checkToken();
-  },
-  watch: {
-    password(){
-      this.passwordsMatch = false;
-    },
-    confirmPassword(){
-      this.passwordsMatch = false;
-    }
+}
+const checkPasswords = (): void => {
+  if (password.value === confirmPassword.value) {
+    changePassword();
+  } else {
+    passwordsMatch.value = true;
   }
 }
+const changePassword = async (): Promise<void> => {
+  axios.post(
+      `${BASE_URL}/Auth/change-password?resetToken=${token}&newPassword=${password.value}`
+  )
+      .then(response => {
+        console.log(response.data);
+        removeToken(response.data.id);
+        router.push("/login");
+      })
+      .catch(error => {
+        console.log('Error', error);
+      });
+}
+const removeToken = async (id: string): Promise<void> => {
+  axios.delete(`${BASE_URL}/Auth/delete-reset-token?id=${id}`
+  )
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log('Error', error);
+      });
+}
+
+onMounted(checkToken);
+
+watch([password, confirmPassword], () => {
+  passwordsMatch.value = false;
+});
+
 </script>
 
 <template>
@@ -75,14 +79,14 @@ export default {
             <div>
               <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
               <div class="mt-1">
-                <input id="password" name="password" type="password" autocomplete="current-password" v-model="password" required
+                <input id="password" name="password" type="password" autocomplete="current-password" v-model="password" minlength="8" required
                        class='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'>
               </div>
             </div>
             <div>
               <label for="confirmPassword" class="block text-sm font-medium leading-6 text-gray-900">Confirm password</label>
               <div class="mt-1">
-                <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="current-password" v-model="confirmPassword" required
+                <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="current-password" v-model="confirmPassword" minlength="8" required
                        class='block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'>
               </div>
             </div>
@@ -100,8 +104,3 @@ export default {
     </div>
   </div>
 </template>
-
-
-<style scoped>
-
-</style>

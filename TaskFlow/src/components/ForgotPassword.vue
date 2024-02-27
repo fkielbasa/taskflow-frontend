@@ -1,43 +1,34 @@
-<script lang="ts">
+<script setup lang="ts">
 import axios from "axios";
 import SuccessAlert from "@/components/SuccessAlert.vue";
 import DangerAlert from "@/components/DangerAlert.vue";
 import {BASE_URL} from "@/config/auth";
-export default {
-  name: 'Forgot-Password',
-  components: {
-    DangerAlert,
-    SuccessAlert
-  },
-  data() {
-    return {
-      email: '',
-      emailCheck: false,
-      isEmailSent: false
-    }
-  },
-  methods: {
-    async sendRecoveryMail() {
-      axios.post(
-          `${BASE_URL}/Auth/forgot-password?email=${this.email}`
-      )
-          .then(response => {
-            console.log(response.data)
-            this.isEmailSent = true;
-          })
-          .catch(error => {
-            console.error('Error:', error)
-            this.emailCheck = true;
-          });
-    }
-  },
-  watch: {
-    email() {
-        this.isEmailSent = false;
-        this.emailCheck = false;
-    }
-  },
-}
+import {type Ref, ref, watch} from 'vue'
+
+const email: Ref<string> = ref('');
+const emailCheck: Ref<boolean> = ref(false);
+const isEmailSent: Ref<boolean> = ref(false);
+
+const sendRecoveryMail = async (): Promise<void> => {
+  try {
+    const response = await axios.post(
+        `${BASE_URL}/Auth/forgot-password?email=${email.value}`
+    );
+    console.log(response.data);
+    isEmailSent.value = true;
+  } catch (error) {
+    console.error('Error:', error);
+    emailCheck.value = true;
+  }
+};
+
+watch(email, () => {
+  isEmailSent.value = false;
+  emailCheck.value = false;
+})
+
+
+
 </script>
 
 <template>
@@ -71,7 +62,3 @@ export default {
     </div>
   </div>
 </template>
-
-<style scoped>
-
-</style>
